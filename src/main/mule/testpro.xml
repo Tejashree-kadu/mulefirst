@@ -41,6 +41,20 @@ output application/json
 			</ee:message>
 		</ee:transform>
 	</flow>
+	<flow name="CICDFlow" doc:id="8d43208e-6490-4efb-8634-1381055e23fc" >
+		<http:listener doc:name="Listener" doc:id="5f5eb61c-b40e-4a8d-aba9-a039e10bb084" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="177c32d3-6b54-48f9-94c3-a1a02522890b" message="This is first manual configuration for CICD"/>
+		<ee:transform doc:name="Transform Message" doc:id="180ac2e0-942d-4985-94a5-85167b4d8aee" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	message : "This is first CICD api"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
 	<flow name="testproFlow" doc:id="4b966ae6-59ef-406a-8f3b-14cf778cc3fc" >
 		<http:listener doc:name="Listener" doc:id="5ad718d4-6edc-44be-9786-722bf1ed3903" config-ref="HTTP_Listener_config" path="/test"/>
 		<flow-ref doc:name="Flow Reference" doc:id="925b6514-c6c7-4c31-b638-bdc10316a96c" name="testproFlow1"/>
