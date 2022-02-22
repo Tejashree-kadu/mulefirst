@@ -44,6 +44,7 @@ output application/json
 	<flow name="CICDFlow" doc:id="8d43208e-6490-4efb-8634-1381055e23fc" >
 		<http:listener doc:name="Listener" doc:id="5f5eb61c-b40e-4a8d-aba9-a039e10bb084" config-ref="HTTP_Listener_config" path="/cicd"/>
 		<logger level="INFO" doc:name="Logger" doc:id="177c32d3-6b54-48f9-94c3-a1a02522890b" message="This is first manual configuration for CICD"/>
+		<set-payload value="#[1234]" doc:name="Set Payload" doc:id="e1d1f1a8-438d-4396-bf2b-6dc4f8258303" />
 		<logger level="INFO" doc:name="Logger" doc:id="0691142e-cd55-4089-88fa-cfc4f4ef6be7" message="Logger 2 for jenkin test"/>
 		<ee:transform doc:name="Transform Message" doc:id="180ac2e0-942d-4985-94a5-85167b4d8aee" >
 			<ee:message >
